@@ -22,7 +22,7 @@ public class WhenCreatingANewDog {
 
     } **/
 
-    @Test //DEFAULT CONSTRUCTOR USING PARAMETERS
+   /** @Test //DEFAULT CONSTRUCTOR USING PARAMETERS
     public void itShouldHaveAName() throws Exception {
 
         LocalDateTime birthday = LocalDateTime.now();
@@ -32,9 +32,25 @@ public class WhenCreatingANewDog {
         Assert.assertEquals("Fido", fido.getName());
         Assert.assertEquals("Poodle", fido.getBreed());
         Assert.assertEquals(birthday, fido.getDoB());
-    }
+    }**/
 
-    @Test //DEFAULT CONSTRUCTOR USING PARAMETERS plus OPTIONAL FIELD PIZZA
+   @Test //BUILDER PATTERN
+   public void itShouldHaveAName() throws Exception {
+       LocalDateTime birthday = LocalDateTime.now();
+
+       Dog fido = Dog.called("Fido")
+               .ofBreed("Poodle")
+               .bornOnBirthday(birthday);
+
+
+       Assert.assertEquals("Fido", fido.getName());
+       Assert.assertEquals("Poodle", fido.getBreed());
+       Assert.assertEquals(birthday, fido.getDoB());
+       //Assert.assertEquals("Pizza", fido.getFavouriteFood());
+
+   }
+
+    /*@Test //DEFAULT CONSTRUCTOR USING PARAMETERS plus OPTIONAL FIELD PIZZA
         public void itShouldHaveAFavouriteFood() throws Exception {
 
             LocalDateTime birthday = LocalDateTime.now();
@@ -47,5 +63,5 @@ public class WhenCreatingANewDog {
             Assert.assertEquals("Pizza", fido.getFavouriteFood());
 
 
-    }
+    }*/
 }
