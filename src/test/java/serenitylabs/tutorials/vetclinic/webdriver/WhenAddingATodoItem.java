@@ -26,12 +26,12 @@ import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.Matchers.*;
 
 public class WhenAddingATodoItem {
-    //WebDriver CJ;
+    WebDriver CJ;
 
     @Before
     public void setup(){
         System.setProperty("webdriver.gecko.driver", "C:/Program Files/firefoxdriver/geckodriver.exe");
-       WebDriver CJ = new FirefoxDriver();
+        CJ = new FirefoxDriver();
 
     }
 
